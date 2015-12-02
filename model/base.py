@@ -1,20 +1,22 @@
 import requests,functools
-from locate import locate
+import locate
 
 class Base(object):
 	def __init__(self,model,m):
 		self.model=model
-  		self.map=m
+  		self.m=m
 
 	def __getattr__(self,name):
-		if name in self.map:
+		if name in self.m:
 			return functools.partial(self.request,name=name)
 		else:
 			raise AttributeError
-	def request(name,pandora,*args,**kwargs):
-		url=locate(pandora,self.model)
-		method,addr=self.map[name]
-		addr=addr%kwargs
+	def request(self,name,pandora,*args,**kwargs):
+		url=locate.locate(pandora,self.model)
+		method,addr=self.m[name]
+		addr=addr % kwargs
 		url='https://%s%s' % (url,addr)
-		r=requests.Request(method,url,params=kwargs)
-		return r
+		req=requests.Request(method,url,params=kwargs)
+                r=req.prepare()
+                s=requests.Session()
+		return s.send(r)

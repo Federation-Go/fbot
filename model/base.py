@@ -12,10 +12,7 @@ class Base(object):
 		else:
 			raise AttributeError
 	def request(self,name,pandora,*args,**kwargs):
-		if pandora not in locate.pandora_url:
-			url=locate.locate(pandora,self.model)
-		else:
-			url=locate.pandora_url[pandora]
+		url=locate.locate(pandora,self.model)
 		method,addr=self.m[name]
 		addr=addr % kwargs
 		url='https://%s%s' % (url,addr)

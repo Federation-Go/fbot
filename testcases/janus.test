@@ -1,0 +1,34 @@
+{
+  "configs": {
+    "env": "dev_alpha"
+  },
+  "variables": {
+    "username": "anonymous:111111",
+    "password": "blabla",
+    "client_id": "blabla",
+    "credential2": "anonymous:22222"
+  },
+  "tests": {
+    "1": {
+      "service": "janus",
+      "action": "authorize",
+      "args": {
+        "username": "%(credential2)s",
+        "password": "blabla"
+      },
+      "type": "store verify ",
+      "response": "200",
+      "store": "token"
+    },
+    "2": {
+      "service": "janus",
+      "action": "link",
+      "args": {
+        "token": "%(token)s",
+        "blabla": "blabla"
+      },
+      "type": "verify",
+      "response": "200"
+    }
+  }
+}

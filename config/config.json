@@ -1,0 +1,18 @@
+{
+	"test_dir":"testcases",
+
+	"pandora":{
+             "dev_alpha"   :  "http://valpha.gameloft.com:20000",
+             "chn_alpha"   :  "http://valpha.bdc.gameloft.com:20000",
+
+             "dev_beta"    :  "http://vbeta.gameloft.com:20000",
+             "chn_beta"    :  "http://vbeta.bdc.gameloft.com:20000",
+             "master_beta" :  "http://vbeta-master.gameloft.com:20000",
+
+             "bob_gold"    :  "http://vgold.gameloft.com:20000",
+             "master_gold" :  "http://vgold-sfs.gameloft.org:20000",
+             "chn_gold"    :  "http://vgold.bdc.gameloft.com:20000",
+             "asa_gold"    :  "http://vgold.asa.gameloft.com:20000",
+             "apa_gold"    :  "http://vgold-apa.gameloft.com:20000"
+           }
+}
